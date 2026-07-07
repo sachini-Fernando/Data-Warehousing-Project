@@ -1,0 +1,2171 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/21/2026 7:08:08 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JFKLF5C"
+  DTS:CreatorName="DESKTOP-JFKLF5C\USER"
+  DTS:DTSID="{242BA6BF-8864-4210-A28E-6BD8E26974F3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{D146A69A-3061-4A6F-8746-73435CFF500D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-JFKLF5C.RetailSales_Stagging 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{32057F00-471A-4F62-A8BF-B3AD2CF09BBD}"
+      DTS:ObjectName="DESKTOP-JFKLF5C.RetailSales_Stagging 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-JFKLF5C;Initial Catalog=RetailSales_Stagging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{32057F00-471A-4F62-A8BF-B3AD2CF09BBD}DESKTOP-JFKLF5C.RetailSales_Stagging 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-JFKLF5C.RetailSales_Stagging 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D90999C3-9EC0-4466-9728-60C5F5022F38}"
+      DTS:ObjectName="DESKTOP-JFKLF5C.RetailSales_Stagging 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-JFKLF5C;Initial Catalog=RetailSales_Stagging;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{D90999C3-9EC0-4466-9728-60C5F5022F38}DESKTOP-JFKLF5C.RetailSales_Stagging 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B86D3147-4873-4431-9E70-FA8C1EA194C5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="BatchID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38FDE00D-EA4E-4A6A-BA41-746A29E77E31}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::StartTime]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentLoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">3/26/2026 10:15:33 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{28A09A4D-A654-4CF1-9F4B-07CF47A83B83}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{836BD4FB-6D09-4BE1-9566-4E76B3440D70}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordRejected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{50F4CD15-C20B-431B-9C07-B6996059FDCB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Stage_Customers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{142E757E-BD9F-4702-8E76-224A9C8D3C2F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Stage_Customers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT_Stage_Customers.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{C6930926-8C9B-4D12-BBE4-A5795CFDD3F2}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{AFF3A753-6F46-4E93-AA10-DE8E19432512}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT_Stage_Customers.EventHandlers[OnPreExecute]\Execute SQL Task"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{8271536B-1D66-423D-8DE0-4427377ED784}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute SQL Task"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+                  SQLTask:SqlStatementSource="truncate table dbo.Customers_Staging" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Stage_Customers\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustomerName"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerName]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[CustomerGender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CustomerGender"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerGender]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[CustomerAge]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerAge"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerAge]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[CustomerSegment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CustomerSegment"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerSegment]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Region"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[LoyaltyTier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="LoyaltyTier"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[LoyaltyTier]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[CustomerTenureYears]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CustomerTenureYears"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerTenureYears]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustomerID"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerName]"
+                      name="conv_CustomerName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerGender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerGender]"
+                      name="conv_CustomerGender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerGender]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerAge]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerAge]"
+                      name="conv_CustomerAge"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerAge]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerSegment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerSegment]"
+                      name="conv_CustomerSegment"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerSegment]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_Region]"
+                      name="conv_Region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[Region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_LoyaltyTier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_LoyaltyTier]"
+                      name="conv_LoyaltyTier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[LoyaltyTier]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerTenureYears]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerTenureYears]"
+                      name="conv_CustomerTenureYears"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerTenureYears]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerID]"
+                      name="conv_CustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Customers\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Customers\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Derived Column.Inputs[Derived Column Input].Columns[conv_CustomerGender]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="conv_CustomerGender"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerGender]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Derived Column.Inputs[Derived Column Input].Columns[conv_CustomerAge]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="conv_CustomerAge"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerAge]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Stage_Customers\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output].Columns[Claen_Age]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output].Columns[Claen_Age]"
+                      name="Claen_Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerAge]}) ? "Unknown" : #{Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerAge]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(conv_CustomerAge) ? "Unknown" : conv_CustomerAge</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output].Columns[Clean_Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output].Columns[Clean_Gender]"
+                      name="Clean_Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerGender]}) ? "Unknown" : #{Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerGender]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(conv_CustomerGender) ? "Unknown" : conv_CustomerGender</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Stage_Customers\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Customers\DER_AddMetadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_AddMetadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Customers\DER_AddMetadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Stage_Customers\DER_AddMetadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidFrom]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidTo]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DATE)"9999-12-31"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DATE)"9999-12-31"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[SourceSystem]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[SourceSystem]"
+                      name="SourceSystem"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"Landing_Database"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"Landing_Database"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[Processed]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[Processed]"
+                      name="Processed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Stage_Customers\DER_AddMetadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Customers\GEt landing Customer data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="GEt landing Customer data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Landing_Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Stage_Customers\GEt landing Customer data.Connections[OleDbConnection]"
+                  connectionManagerID="{AA8C83B3-30A2-4955-9DAA-3EBBD0AC0E60}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JFKLF5C.Landing_RetailSales]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerName]"
+                      name="CustomerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerGender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerGender]"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerGender]"
+                      name="CustomerGender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerAge]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerAge]"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerAge]"
+                      name="CustomerAge"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerSegment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerSegment]"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerSegment]"
+                      name="CustomerSegment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoyaltyTier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[LoyaltyTier]"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoyaltyTier]"
+                      name="LoyaltyTier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerTenureYears]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerTenureYears]"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerTenureYears]"
+                      name="CustomerTenureYears"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[Processed]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[Processed]"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[Processed]"
+                      name="Processed"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerGender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CustomerGender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerAge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerAge" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerSegment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CustomerSegment" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[LoyaltyTier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="LoyaltyTier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[CustomerTenureYears]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="CustomerTenureYears" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].ExternalColumns[Processed]"
+                      dataType="bool"
+                      name="Processed" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerName]"
+                      name="CustomerName" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerGender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerGender]"
+                      name="CustomerGender" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerAge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerAge]"
+                      name="CustomerAge" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerSegment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerSegment]"
+                      name="CustomerSegment" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[LoyaltyTier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[LoyaltyTier]"
+                      name="LoyaltyTier" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerTenureYears]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[CustomerTenureYears]"
+                      name="CustomerTenureYears" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[Processed]"
+                      dataType="bool"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[Processed]"
+                      name="Processed" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Customers\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customers_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Stage_Customers\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{C5E5115A-E69D-448F-9409-80D7C714B38F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JFKLF5C.RetailSales_Stagging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="IsCurrent"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[IsCurrent]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedDataType="date"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ValidTo]"
+                      cachedDataType="date"
+                      cachedName="ValidTo"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidTo]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceSystem]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SourceSystem"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystem]"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[SourceSystem]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Processed]"
+                      cachedDataType="bool"
+                      cachedName="Processed"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Processed]"
+                      lineageId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output].Columns[Processed]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[conv_CustomerName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="conv_CustomerName"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseCustomerID]"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerName]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[conv_CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="conv_CustomerID"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[conv_CustomerSegment]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="conv_CustomerSegment"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSegment]"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerSegment]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[conv_Region]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="conv_Region"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_Region]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[conv_LoyaltyTier]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="conv_LoyaltyTier"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoyaltyTier]"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_LoyaltyTier]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[conv_CustomerTenureYears]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="conv_CustomerTenureYears"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerTenureYears]"
+                      lineageId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output].Columns[conv_CustomerTenureYears]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Claen_Age]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Claen_Age"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerAge]"
+                      lineageId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output].Columns[Claen_Age]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Clean_Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Clean_Gender"
+                      externalMetadataColumnId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerGender]"
+                      lineageId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output].Columns[Clean_Gender]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseCustomerID]"
+                      dataType="wstr"
+                      length="100"
+                      name="BaseCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="100"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerGender]"
+                      dataType="wstr"
+                      length="10"
+                      name="CustomerGender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerAge]"
+                      dataType="wstr"
+                      length="100"
+                      name="CustomerAge" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSegment]"
+                      dataType="wstr"
+                      length="50"
+                      name="CustomerSegment" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="50"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoyaltyTier]"
+                      dataType="wstr"
+                      length="20"
+                      name="LoyaltyTier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerTenureYears]"
+                      dataType="wstr"
+                      length="100"
+                      name="CustomerTenureYears" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      dataType="dbTimeStamp"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      dataType="dbTimeStamp"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Processed]"
+                      dataType="bool"
+                      name="Processed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystem]"
+                      dataType="wstr"
+                      length="50"
+                      name="SourceSystem" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Customers\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[CustomerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustomerName"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[CustomerGender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CustomerGender"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerGender]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[CustomerAge]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerAge"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerAge]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[CustomerSegment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CustomerSegment"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerSegment]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Region"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[LoyaltyTier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="LoyaltyTier"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoyaltyTier]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[CustomerTenureYears]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="CustomerTenureYears"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerTenureYears]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[LoadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadDate"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoadDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustomerID"
+                      lineageId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerName]"
+                      name="CustomerName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerGender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerGender]"
+                      name="CustomerGender">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerGender]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerAge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerAge]"
+                      name="CustomerAge">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerAge]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerSegment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerSegment]"
+                      name="CustomerSegment">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerSegment]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[Region]"
+                      name="Region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[Region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[LoyaltyTier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[LoyaltyTier]"
+                      name="LoyaltyTier">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoyaltyTier]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerTenureYears]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerTenureYears]"
+                      name="CustomerTenureYears">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerTenureYears]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[LoadDate]"
+                      name="LoadDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[LoadDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output].Columns[CustomerID]"
+                      name="CustomerID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output].Columns[CustomerID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Stage_Customers.Paths[Data Conversion Output]"
+              endId="Package\DFT_Stage_Customers\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Stage_Customers\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Stage_Customers.Paths[Derived Column Output]"
+              endId="Package\DFT_Stage_Customers\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Stage_Customers\DER_AddMetadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Stage_Customers.Paths[Derived Column Output1]"
+              endId="Package\DFT_Stage_Customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Stage_Customers\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Stage_Customers.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Stage_Customers\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Stage_Customers\GEt landing Customer data.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_Stage_Customers.Paths[Sort Output]"
+              endId="Package\DFT_Stage_Customers\DER_AddMetadata.Inputs[Derived Column Input]"
+              name="Sort Output"
+              startId="Package\DFT_Stage_Customers\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Get_BatchID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{178A1342-2579-40B1-ADC9-98BEDB9A16DB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Get_BatchID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(BatchID), 0) + 1 AS NewBatchID&#xA;FROM ETL_Audit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Start_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{025B0928-779E-48FD-AB3F-D866A2C7CAD4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Start_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="INSERT INTO ETL_Audit (&#xA;    BatchID,&#xA;    PackageName,&#xA;    StartTime,&#xA;    Status&#xA;)&#xA;VALUES (&#xA;    ?,&#xA;    'STG_Customers',&#xA;    GETDATE(),&#xA;    'Running'&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Update_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{998FF28E-3D55-413A-B7E3-FD522580E604}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Update_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="UPDATE ETL_Audit &#xA;SET EndTime = GETDATE(),&#xA;    RecordsInserted = ?,&#xA;    RecordsUpdated = ?,&#xA;    RecordsRejected = ?,&#xA;    Status = 'Completed'&#xA;WHERE BatchID = ? &#xA;AND PackageName = 'STG_Customers'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::RecordInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RecordUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RecordRejected"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQ_Update_Landing_Flag"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7017A929-BA63-4CA9-BE7E-874BF4DE6110}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQ_Update_Landing_Flag"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA8C83B3-30A2-4955-9DAA-3EBBD0AC0E60}"
+          SQLTask:SqlStatementSource="UPDATE Landing_Customers&#xA;SET Processed = 1&#xA;WHERE Processed = 0 OR Processed IS NULL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9C83D6B7-104C-48C3-BB7C-CD10ECA4C96B}"
+      DTS:From="Package\SQL_Get_BatchID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL_Start_Audit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D8897296-807F-4822-AC59-1AEB0C34CDDD}"
+      DTS:From="Package\SQL_Start_Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT_Stage_Customers" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1F07786-2B57-4671-851F-E0B7712AD8D5}"
+      DTS:From="Package\DFT_Stage_Customers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL_Update_Audit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{62218197-8C2D-4408-8237-8FB3C67AE087}"
+      DTS:From="Package\SQL_Update_Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQ_Update_Landing_Flag" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\DFT_Stage_Customers"
+          TopLeft="582.566640212968,65.8666662086381" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\SQ_Update_Landing_Flag"
+          TopLeft="773.266624504661,197.466665593916" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQL_Get_BatchID"
+          TopLeft="142.499992214144,60.6666662447983" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\SQL_Start_Audit"
+          TopLeft="359.166647042666,70.199999511838" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\SQL_Update_Audit"
+          TopLeft="824.166621636187,75.3999994756778" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="307.299992214144,81.4666662447983">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.866654828522,9.53333326703968"
+              Start="0,0"
+              End="44.366654828522,9.53333326703968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.933327414261,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.933327414261,0"
+                    Point2="25.933327414261,0"
+                    Point3="25.933327414261,4" />
+                  <mssgle:LineSegment
+                    End="25.933327414261,5.53333326703968" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.933327414261,5.53333326703968"
+                    Point2="25.933327414261,9.53333326703968"
+                    Point3="29.933327414261,9.53333326703968" />
+                  <mssgle:LineSegment
+                    End="44.366654828522,9.53333326703968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="515.966647042666,88.833332860238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.599993170302,0"
+              Start="0,0"
+              End="59.099993170302,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.099993170302,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="769.766640212968,86.6666662086381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.3999814232196,9.53333326703967"
+              Start="0,0"
+              End="46.8999814232196,9.53333326703967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.1999907116098,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.1999907116098,0"
+                    Point2="27.1999907116098,0"
+                    Point3="27.1999907116098,4" />
+                  <mssgle:LineSegment
+                    End="27.1999907116098,5.53333326703967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.1999907116098,5.53333326703967"
+                    Point2="27.1999907116098,9.53333326703967"
+                    Point3="31.1999907116098,9.53333326703967" />
+                  <mssgle:LineSegment
+                    End="46.8999814232196,9.53333326703967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="908.166621636187,116.999999475678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.0999971315268,80.4666661182378"
+              Start="0,0"
+              End="-34.0999971315268,72.9666661182378">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.2333330591189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.2333330591189"
+                    Point2="0,40.2333330591189"
+                    Point3="-4,40.2333330591189" />
+                  <mssgle:LineSegment
+                    End="-30.0999971315268,40.2333330591189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.0999971315268,40.2333330591189"
+                    Point2="-34.0999971315268,40.2333330591189"
+                    Point3="-34.0999971315268,44.2333330591189" />
+                  <mssgle:LineSegment
+                    End="-34.0999971315268,72.9666661182378" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Stage_Customers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\DFT_Stage_Customers\DER_AddMetadata"
+          TopLeft="432.954521798953,66.1696967209587" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\DFT_Stage_Customers\Sort"
+          TopLeft="250.833319628405,161.199998879035" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT_Stage_Customers\Derived Column"
+          TopLeft="662.499963802598,127.399999114076" />
+        <EdgeLayout
+          Id="Package\DFT_Stage_Customers.Paths[Sort Output]"
+          TopLeft="314.566652961738,161.199998879035">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="202.387868837215,-53.4303021580766"
+              Start="0,0"
+              End="202.387868837215,-45.9303021580766">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.8891883034701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.8891883034701"
+                    Point2="0,-21.8891883034701"
+                    Point3="4,-21.8891883034701" />
+                  <mssgle:LineSegment
+                    End="198.387868837215,-21.8891883034701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="198.387868837215,-21.8891883034701"
+                    Point2="202.387868837215,-21.8891883034701"
+                    Point3="202.387868837215,-25.8891883034701" />
+                  <mssgle:LineSegment
+                    End="202.387868837215,-45.9303021580766" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\DFT_Stage_Customers\GEt landing Customer data"
+          TopLeft="162.499991121392,74.5333328150378" />
+        <EdgeLayout
+          Id="Package\DFT_Stage_Customers.Paths[OLE DB Source Output]"
+          TopLeft="264.099991121392,116.133332815038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5999951736798,45.0666660639972"
+              Start="0,0"
+              End="20.5999951736798,37.5666660639972">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6038706119725" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.6038706119725"
+                    Point2="0,26.6038706119725"
+                    Point3="4,26.6038706119725" />
+                  <mssgle:LineSegment
+                    End="16.5999951736798,26.6038706119725" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5999951736798,26.6038706119725"
+                    Point2="20.5999951736798,26.6038706119725"
+                    Point3="20.5999951736798,30.6038706119725" />
+                  <mssgle:LineSegment
+                    End="20.5999951736798,37.5666660639972" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\DFT_Stage_Customers\Data Conversion"
+          TopLeft="717.49996079753,44.1999996926387" />
+        <EdgeLayout
+          Id="Package\DFT_Stage_Customers.Paths[Derived Column Output]"
+          TopLeft="600.954521798953,86.9696967209587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116.545438998577,-21.96969702832"
+              Start="0,0"
+              End="109.045438998577,-21.96969702832">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.2727194992886,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.2727194992886,0"
+                    Point2="58.2727194992886,0"
+                    Point3="58.2727194992886,-4" />
+                  <mssgle:LineSegment
+                    End="58.2727194992886,-17.96969702832" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.2727194992886,-17.96969702832"
+                    Point2="58.2727194992886,-21.96969702832"
+                    Point3="62.2727194992886,-21.96969702832" />
+                  <mssgle:LineSegment
+                    End="109.045438998577,-21.96969702832" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Stage_Customers.Paths[Data Conversion Output]"
+          TopLeft="795.49996079753,85.7999996926387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-56.5999969949321,41.5999994214373"
+              Start="0,0"
+              End="-56.5999969949321,34.0999994214373">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7999997107186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7999997107186"
+                    Point2="0,20.7999997107186"
+                    Point3="-4,20.7999997107186" />
+                  <mssgle:LineSegment
+                    End="-52.5999969949321,20.7999997107186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-52.5999969949321,20.7999997107186"
+                    Point2="-56.5999969949321,20.7999997107186"
+                    Point3="-56.5999969949321,24.7999997107186" />
+                  <mssgle:LineSegment
+                    End="-56.5999969949321,34.0999994214373" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT_Stage_Customers\OLE DB Destination"
+          TopLeft="920.83328302122,150.799998951356" />
+        <EdgeLayout
+          Id="Package\DFT_Stage_Customers.Paths[Derived Column Output1]"
+          TopLeft="815.299963802598,148.199999114076">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.533319218622,23.3999998372796"
+              Start="0,0"
+              End="98.0333192186224,23.3999998372796">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="48.7666596093112,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.7666596093112,0"
+                    Point2="52.7666596093112,0"
+                    Point3="52.7666596093112,4" />
+                  <mssgle:LineSegment
+                    End="52.7666596093112,19.3999998372796" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.7666596093112,19.3999998372796"
+                    Point2="52.7666596093112,23.3999998372796"
+                    Point3="56.7666596093112,23.3999998372796" />
+                  <mssgle:LineSegment
+                    End="98.0333192186224,23.3999998372796" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT_Stage_Customers.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DFT_Stage_Customers.EventHandlers[OnPreExecute]\Execute SQL Task"
+          TopLeft="273.999995917082,75.9999988675118" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Stage_Customers\GEt landing Customer data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Stage_Customers\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

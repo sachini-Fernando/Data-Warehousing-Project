@@ -1,0 +1,25 @@
+ProductID,ProductCategory,SubCategory,ProductName,UnitPrice,Supplier
+PROD_001,Movies,General,Movies Item,455.1,Supplier_A
+PROD_002,Pet Supplies,General,Pet Supplies Item,18.01,Supplier_B
+PROD_003,Outdoor,General,Outdoor Item,490.96,Supplier_C
+PROD_004,Electronics,Laptops,Wireless Mouse,56.63,Supplier_D
+PROD_005,Books,Fiction,Cookbook,436.48,Supplier_E
+PROD_006,Automotive,General,Automotive Item,459.16,Supplier_F
+PROD_007,Office Supplies,General,Office Supplies Item,401.63,Supplier_G
+PROD_008,DIY,General,DIY Item,156.95,Supplier_H
+PROD_009,Groceries,General,Groceries Item,190.87,Supplier_I
+PROD_010,Toys,General,Toys Item,106.77,Supplier_J
+PROD_011,Tools,General,Tools Item,373.93,Supplier_K
+PROD_012,Beauty,General,Beauty Item,24.74,Supplier_L
+PROD_013,Clothing,Men,T-Shirts,494.05,Supplier_M
+PROD_014,Software,General,Software Item,239.14,Supplier_N
+PROD_015,Appliances,General,Appliances Item,475.93,Supplier_O
+PROD_016,Sports,Fitness,Yoga Mat,327.89,Supplier_P
+PROD_017,Music,General,Music Item,43.72,Supplier_Q
+PROD_018,Garden,General,Garden Item,203.69,Supplier_R
+PROD_019,Personal Care,General,Personal Care Item,195.61,Supplier_S
+PROD_020,Furniture,General,Furniture Item,88.69,Supplier_T
+PROD_021,Health,General,Health Item,343.5,Supplier_U
+PROD_022,Jewelry,General,Jewelry Item,228.39,Supplier_V
+PROD_023,Home & Kitchen,General,Home & Kitchen Item,371.41,Supplier_W
+PROD_024,Baby Products,General,Baby Products Item,128.3,Supplier_X

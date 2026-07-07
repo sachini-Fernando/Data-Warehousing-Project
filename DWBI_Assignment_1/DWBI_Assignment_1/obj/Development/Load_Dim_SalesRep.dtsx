@@ -1,0 +1,2233 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/24/2026 8:58:32 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JFKLF5C"
+  DTS:CreatorName="DESKTOP-JFKLF5C\USER"
+  DTS:DTSID="{65343EC1-4A13-4281-B331-A9F0EACBB494}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{1747A7BB-2D8C-4D99-8B7F-5CE4600A2BBF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F2699E9-5D19-4F1F-81EC-66EC29BEFB04}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="BatchID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4ED3E536-A000-4121-B0DD-AF4D65CDB13D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::StartTime]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentLoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">3/25/2026 10:37:25 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BDAED7F2-FBB5-45FE-B938-4E7791DE2D91}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A0A1109-B35F-46EF-8121-DEDF4CCDFF30}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsRejected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{64EFD05B-1D95-400F-A4B3-67854FC3D932}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Load_SalesRep"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ab6b74b4-824c-4fad-8a34-332c59f24b2c}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Load_SalesRep"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Load_SalesRep\Changed records"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Changed records">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\Changed records.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Changed records.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Changed records.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Changed records.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Changed records.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Changed records.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Changed records.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\Determine action"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Determine action"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[SalesRepName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SalesRepName"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepName]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Region"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Team]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Team"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Title"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[HireDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="HireDate"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Lookup_SalesRepSK]"
+                      cachedDataType="i4"
+                      cachedName="Lookup_SalesRepSK"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepSK]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Lookup_SalesRepName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_SalesRepName"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepName]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Lookup_Region]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_Region"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Region]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Lookup_Team]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_Team"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Team]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Lookup_Title]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_Title"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Title]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input].Columns[Lookup_HireDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Lookup_HireDate"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_HireDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Determine action.Outputs[new record]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="new record"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepSK]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(Lookup_SalesRepSK)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Determine action.Outputs[changed record]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="changed record"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepName]} != #{Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepName]} || #{Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Region]} != #{Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]} || #{Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Team]} != #{Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team]} || #{Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Title]} != #{Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]} || #{Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_HireDate]} != #{Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Lookup_SalesRepName != SalesRepName || Lookup_Region != Region || Lookup_Team != Team || Lookup_Title != Title || Lookup_HireDate != HireDate</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Determine action.Outputs[unchanged]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="unchanged"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Determine action.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Determine action.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Determine action.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Determine action.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\Existing sales reps"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Existing sales reps"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [Dim_SalesRep]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [Dim_SalesRep]) [refTable]
+where [refTable].[AlternateSalesRepID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SalesRepSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AlternateSalesRepID" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SalesRepName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Region" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Team" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Title" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HireDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ValidFrom" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ValidTo" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsCurrent" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SrcModifiedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InsertDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ModifiedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceSystem" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_SalesRep\Existing sales reps.Connections[OleDbConnection]"
+                  connectionManagerID="{59F09B93-D818-45C2-8A91-7792BCB016D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_DWDB]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\Existing sales reps.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Inputs[Lookup Input].Columns[SalesRepID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SalesRepID"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AlternateSalesRepID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Existing sales reps.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepSK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepSK]"
+                      name="Lookup_SalesRepSK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SalesRepSK</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_AlternateSalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_AlternateSalesRepID]"
+                      name="Lookup_AlternateSalesRepID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AlternateSalesRepID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepName]"
+                      name="Lookup_SalesRepName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SalesRepName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Region]"
+                      name="Lookup_Region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Region</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Team]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Team]"
+                      name="Lookup_Team"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Team</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Title]"
+                      name="Lookup_Title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Title</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_HireDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_HireDate]"
+                      name="Lookup_HireDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">HireDate</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_ModifiedDate]"
+                      name="Lookup_ModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ModifiedDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Existing sales reps.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Existing sales reps.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\Expir old version"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Expir old version"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE Dim_SalesRep 
+SET IsCurrent = 0, 
+    ValidTo = GETDATE(),
+    ModifiedDate = GETDATE()
+WHERE SalesRepSK = ? 
+  AND IsCurrent = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_SalesRep\Expir old version.Connections[OleDbConnection]"
+                  connectionManagerID="{59F09B93-D818-45C2-8A91-7792BCB016D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_DWDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\Expir old version.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Expir old version.Inputs[OLE DB Command Input].Columns[Lookup_SalesRepSK]"
+                      cachedDataType="i4"
+                      cachedName="Lookup_SalesRepSK"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Expir old version.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepSK]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Expir old version.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Expir old version.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Expir old version.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Expir old version.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Expir old version.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Expir old version.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Expir old version.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Expir old version.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Expir old version.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\Load to Dim_product"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load to Dim_product"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC dbo.UpdateDimSalesRep ?, ?, ?, ?, ?, ?, ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product.Connections[OleDbConnection]"
+                  connectionManagerID="{59F09B93-D818-45C2-8A91-7792BCB016D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_DWDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].Columns[SalesRepID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SalesRepID"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepID]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].Columns[SalesRepName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SalesRepName"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepName]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepName]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@Region]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].Columns[Team]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Team"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@Team]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@Title]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].Columns[HireDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="HireDate"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@HireDate]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@ModifiedDate]"
+                      lineageId="Package\DFT_Load_SalesRep\289:invalid" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="@ModifiedDate">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepID]"
+                      dataType="i4"
+                      name="@SalesRepID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepName]"
+                      dataType="wstr"
+                      length="100"
+                      name="@SalesRepName">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@Region]"
+                      dataType="wstr"
+                      length="100"
+                      name="@Region">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@Team]"
+                      dataType="wstr"
+                      length="100"
+                      name="@Team">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@Title]"
+                      dataType="wstr"
+                      length="100"
+                      name="@Title">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input].ExternalColumns[@HireDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="@HireDate">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Load to Dim_product.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Load to Dim_product.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\Load to Dim_product 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load to Dim_product 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC dbo.UpdateDimSalesRep ?,?,?,?,?,?,?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Connections[OleDbConnection]"
+                  connectionManagerID="{59F09B93-D818-45C2-8A91-7792BCB016D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_DWDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].Columns[Lookup_AlternateSalesRepID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Lookup_AlternateSalesRepID"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepID]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_AlternateSalesRepID]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].Columns[Lookup_SalesRepName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_SalesRepName"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepName]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_SalesRepName]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].Columns[Lookup_Region]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_Region"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@Region]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Region]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].Columns[Lookup_Team]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_Team"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@Team]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Team]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].Columns[Lookup_Title]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lookup_Title"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@Title]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_Title]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].Columns[Lookup_HireDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Lookup_HireDate"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@HireDate]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_HireDate]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].Columns[Lookup_ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Lookup_ModifiedDate"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@ModifiedDate]"
+                      lineageId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output].Columns[Lookup_ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="@ModifiedDate">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepID]"
+                      dataType="i4"
+                      name="@SalesRepID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@SalesRepName]"
+                      dataType="wstr"
+                      length="100"
+                      name="@SalesRepName">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@Region]"
+                      dataType="wstr"
+                      length="100"
+                      name="@Region">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@Team]"
+                      dataType="wstr"
+                      length="100"
+                      name="@Team">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@Title]"
+                      dataType="wstr"
+                      length="100"
+                      name="@Title">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input].ExternalColumns[@HireDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="@HireDate">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\new columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="new columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\new columns.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\new columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Output].Columns[ValidTo]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Output].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DATE)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DATE)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\new columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\New records"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="New records"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_SalesRep\New records.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\New records.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Output].Columns[ValidTo]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Output].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Load_SalesRep\New records.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_SalesRep\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SalesReps_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_SalesRep\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{C5E5115A-E69D-448F-9409-80D7C714B38F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JFKLF5C.RetailSales_Stagging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesRepID]"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]"
+                      name="SalesRepID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesRepName]"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepName]"
+                      name="SalesRepName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Team]"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Team]"
+                      name="Team"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      length="10"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      name="HireDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidTo]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidTo]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Processed]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Processed]"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[Processed]"
+                      name="Processed"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystem]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystem]"
+                      length="50"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystem]"
+                      name="SourceSystem"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SalesRepID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesRepName]"
+                      dataType="wstr"
+                      length="100"
+                      name="SalesRepName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="100"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Team]"
+                      dataType="wstr"
+                      length="100"
+                      name="Team" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="100"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidFrom]"
+                      dataType="dbTimeStamp"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidTo]"
+                      dataType="dbTimeStamp"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Processed]"
+                      dataType="bool"
+                      name="Processed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystem]"
+                      dataType="wstr"
+                      length="50"
+                      name="SourceSystem" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesRepID]"
+                      name="SalesRepID" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesRepName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesRepName]"
+                      name="SalesRepName" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Team]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Team]"
+                      name="Team" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      name="HireDate" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                      dataType="bool"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsCurrent]"
+                      name="IsCurrent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidFrom]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidFrom]"
+                      name="ValidFrom" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidTo]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidTo]"
+                      name="ValidTo" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Processed]"
+                      dataType="bool"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Processed]"
+                      name="Processed" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystem]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystem]"
+                      name="SourceSystem" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[changed record]"
+              endId="Package\DFT_Load_SalesRep\Changed records.Inputs[Multicast Input 1]"
+              name="changed record"
+              startId="Package\DFT_Load_SalesRep\Determine action.Outputs[changed record]" />
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[Derived Column Output]"
+              endId="Package\DFT_Load_SalesRep\Load to Dim_product 1.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Load_SalesRep\new columns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[Derived Column Output1]"
+              endId="Package\DFT_Load_SalesRep\Load to Dim_product.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Load_SalesRep\New records.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[Lookup Match Output]"
+              endId="Package\DFT_Load_SalesRep\Determine action.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_Load_SalesRep\Existing sales reps.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[Multicast Output 1]"
+              endId="Package\DFT_Load_SalesRep\Expir old version.Inputs[OLE DB Command Input]"
+              name="Multicast Output 1"
+              startId="Package\DFT_Load_SalesRep\Changed records.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[Multicast Output 2]"
+              endId="Package\DFT_Load_SalesRep\new columns.Inputs[Derived Column Input]"
+              name="Multicast Output 2"
+              startId="Package\DFT_Load_SalesRep\Changed records.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[new record]"
+              endId="Package\DFT_Load_SalesRep\New records.Inputs[Derived Column Input]"
+              name="new record"
+              startId="Package\DFT_Load_SalesRep\Determine action.Outputs[new record]" />
+            <path
+              refId="Package\DFT_Load_SalesRep.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Load_SalesRep\Existing sales reps.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Load_SalesRep\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Get_BatchID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a43bd1ab-770a-4f22-9f73-d54d57c1c4a9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Get_BatchID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(BatchID), 0) + 1 AS NewBatchID&#xA;FROM ETL_Audit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="NewBatchID"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Start_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b43d1c84-11fb-4c8c-9223-ee480ff2e60a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Start_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="INSERT INTO ETL_Audit (&#xA;    BatchID,&#xA;    PackageName,&#xA;    StartTime,&#xA;    Status&#xA;)&#xA;VALUES (&#xA;    ?,&#xA;    'Load_Dim_SalesRep',&#xA;    GETDATE(),&#xA;    'Running'&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Update_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e89e5789-93eb-47e1-a9d9-9b462544b44e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Update_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="UPDATE ETL_Audit &#xA;SET EndTime = GETDATE(),&#xA;    RecordsInserted = ?,&#xA;    RecordsUpdated = ?,&#xA;    RecordsRejected = ?,&#xA;    Status = 'Completed'&#xA;WHERE BatchID = ? &#xA;AND PackageName = 'Load_Dim_SalesRep'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::RecordsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RecordsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RecordsRejected"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Update_Landing_Flag"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{35436f83-25ff-4971-90b7-0d11872296be}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Update_Landing_Flag"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA8C83B3-30A2-4955-9DAA-3EBBD0AC0E60}"
+          SQLTask:SqlStatementSource="UPDATE Landing_Products&#xA;SET Processed = 1&#xA;WHERE Processed = 0 OR Processed IS NULL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{85ea8ab9-e901-4fe4-92a3-57bfa431ee38}"
+      DTS:From="Package\SQL_Get_BatchID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL_Start_Audit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{98bc64ff-6f05-4a0e-96bf-2c1f74125742}"
+      DTS:From="Package\SQL_Start_Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT_Load_SalesRep" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{91f1f8cd-82a8-4c79-98fb-ee74765a0b7a}"
+      DTS:From="Package\DFT_Load_SalesRep"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL_Update_Audit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{e08e9d0b-909b-40a7-8894-8667f1380e2f}"
+      DTS:From="Package\SQL_Update_Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL_Update_Landing_Flag" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\DFT_Load_SalesRep"
+          TopLeft="508.885164549378,64.5259258944529" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQL_Get_BatchID"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\SQL_Start_Audit"
+          TopLeft="298.333320311376,60.8666666606398" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\SQL_Update_Audit"
+          TopLeft="749.866629148856,75.59999989152" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\SQL_Update_Landing_Flag"
+          TopLeft="949.033284933536,81.6666665159987" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="224.8,81.2333333303199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.5333203113758,0"
+              Start="0,0"
+              End="66.0333203113758,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.0333203113758,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="455.133320311376,83.4962962775463">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.7518442380026,0"
+              Start="0,0"
+              End="46.2518442380026,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.2518442380026,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="687.285164549378,85.3259258944529">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.5814645994778,11.0740739970671"
+              Start="0,0"
+              End="55.0814645994778,11.0740739970671">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.2907322997389,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.2907322997389,0"
+                    Point2="31.2907322997389,0"
+                    Point3="31.2907322997389,4" />
+                  <mssgle:LineSegment
+                    End="31.2907322997389,7.07407399706707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.2907322997389,7.07407399706707"
+                    Point2="31.2907322997389,11.0740739970671"
+                    Point3="35.2907322997389,11.0740739970671" />
+                  <mssgle:LineSegment
+                    End="55.0814645994778,11.0740739970671" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="917.866629148856,99.4333332037593">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.1666557846802,0"
+              Start="0,0"
+              End="23.6666557846802,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.6666557846802,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Load_SalesRep">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DFT_Load_SalesRep\Existing sales reps"
+          TopLeft="332.870355461391,78.1999998734395" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\DFT_Load_SalesRep\new columns"
+          TopLeft="854.399957382685,304.333332363036" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\DFT_Load_SalesRep\Load to Dim_product 1"
+          TopLeft="845.833290397289,393.799999114077" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\DFT_Load_SalesRep\Determine action"
+          TopLeft="596.203674406826,77.3333332127995" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\DFT_Load_SalesRep\New records"
+          TopLeft="488.703680280366,202.133332344956" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\DFT_Load_SalesRep\Expir old version"
+          TopLeft="612.037006875064,301.799998318553" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\DFT_Load_SalesRep\Changed records"
+          TopLeft="726.203667303939,192.599999077917" />
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[new record]"
+          TopLeft="649.803674406826,118.933333212799">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-92.6999941264594,83.1999991321566"
+              Start="0,0"
+              End="-92.6999941264594,75.6999991321566">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7842420718454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.7842420718454"
+                    Point2="0,33.7842420718454"
+                    Point3="-4,33.7842420718454" />
+                  <mssgle:LineSegment
+                    End="-88.6999941264594,33.7842420718454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-88.6999941264594,33.7842420718454"
+                    Point2="-92.6999941264594,33.7842420718454"
+                    Point3="-92.6999941264594,37.7842420718454" />
+                  <mssgle:LineSegment
+                    End="-92.6999941264594,75.6999991321566" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-131.811269803876,41.9515147770933,50.08921875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[Multicast Output 2]"
+          TopLeft="830.470333970606,234.199999077917">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.5296234120796,70.1333332851197"
+              Start="0,0"
+              End="93.5296234120796,62.6333332851197">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4741333137586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4741333137586"
+                    Point2="0,28.4741333137586"
+                    Point3="4,28.4741333137586" />
+                  <mssgle:LineSegment
+                    End="89.5296234120796,28.4741333137586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89.5296234120796,28.4741333137586"
+                    Point2="93.5296234120796,28.4741333137586"
+                    Point3="93.5296234120796,32.4741333137586" />
+                  <mssgle:LineSegment
+                    End="93.5296234120796,62.6333332851197" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[Multicast Output 1]"
+          TopLeft="780.337000637272,234.199999077917">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90.6999937622084,67.5999992406365"
+              Start="0,0"
+              End="-90.6999937622084,60.0999992406365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4455996916984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.4455996916984"
+                    Point2="0,27.4455996916984"
+                    Point3="-4,27.4455996916984" />
+                  <mssgle:LineSegment
+                    End="-86.6999937622084,27.4455996916984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86.6999937622084,27.4455996916984"
+                    Point2="-90.6999937622084,27.4455996916984"
+                    Point3="-90.6999937622084,31.4455996916984" />
+                  <mssgle:LineSegment
+                    End="-90.6999937622084,60.0999992406365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[Lookup Match Output]"
+          TopLeft="497.670355461391,98.5666665431195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.5333189454347,0"
+              Start="0,0"
+              End="91.0333189454347,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="91.0333189454347,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-9.7580599874586,1,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[Derived Column Output]"
+          TopLeft="923.999957382685,345.933332363036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.4333330146042,47.8666667510402"
+              Start="0,0"
+              End="13.4333330146042,40.3666667510402">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9333333755201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9333333755201"
+                    Point2="0,23.9333333755201"
+                    Point3="4,23.9333333755201" />
+                  <mssgle:LineSegment
+                    End="9.43333301460416,23.9333333755201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.43333301460416,23.9333333755201"
+                    Point2="13.4333330146042,23.9333333755201"
+                    Point3="13.4333330146042,27.9333333755201" />
+                  <mssgle:LineSegment
+                    End="13.4333330146042,40.3666667510402" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[changed record]"
+          TopLeft="699.403674406826,118.933333212799">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.999992897113,73.6666658651171"
+              Start="0,0"
+              End="105.999992897113,66.1666658651171">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9131309876536" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9131309876536"
+                    Point2="0,29.9131309876536"
+                    Point3="4,29.9131309876536" />
+                  <mssgle:LineSegment
+                    End="101.999992897113,29.9131309876536" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.999992897113,29.9131309876536"
+                    Point2="105.999992897113,29.9131309876536"
+                    Point3="105.999992897113,33.9131309876536" />
+                  <mssgle:LineSegment
+                    End="105.999992897113,66.1666658651171" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.1892645733392,38.0804036929017,69.5451953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\DFT_Load_SalesRep\Load to Dim_product"
+          TopLeft="211.203695442299,208.199998969436" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DFT_Load_SalesRep\OLE DB Source"
+          TopLeft="110.833327277667,72.1333329596785" />
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[OLE DB Source Output]"
+          TopLeft="262.833327277667,95.966666416559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.0370281837237,0"
+              Start="0,0"
+              End="62.5370281837237,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="62.5370281837237,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Load_SalesRep.Paths[Derived Column Output1]"
+          TopLeft="488.703680280366,225.966665657196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103.099984838067,0"
+              Start="0,0"
+              End="-95.5999848380675,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-95.5999848380675,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.7999924190337,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_SalesRep\Existing sales reps">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Dim_SalesRep]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

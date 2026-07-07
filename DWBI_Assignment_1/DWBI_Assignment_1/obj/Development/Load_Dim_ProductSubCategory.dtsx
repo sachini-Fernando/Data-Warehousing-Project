@@ -1,0 +1,682 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/24/2026 12:22:36 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JFKLF5C"
+  DTS:CreatorName="DESKTOP-JFKLF5C\USER"
+  DTS:DTSID="{1A1DADC1-6F2E-4198-8938-EF020F86D6D4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{DC0A9C43-36E6-4090-B228-30EF8D227268}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B67E1E2-88F8-4454-B051-6D4E4C7C449B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="BatchID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{87A224A8-C440-47DF-A12D-FA15D582581D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::StartTime]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentLoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">3/25/2026 4:37:02 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D5B2A46-46B0-48CE-82E4-216E64E6BCB5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{11E36EA1-6B1C-4DD3-9E8F-178DACF1726C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsRejected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE3CA41C-EB76-4C42-A83E-081406D274D7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Load_ProductSubCategory"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8ca1b924-56b6-453e-83b7-f637862ae1c5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Load_ProductSubCategory"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract Product SubCategory Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">-- For Product SubCategory - Extract distinct subcategories with category mapping
+WITH CategoryCTE AS (
+    SELECT DISTINCT
+        ROW_NUMBER() OVER (ORDER BY conv_ProductCategory) AS ProductCategoryID,
+        conv_ProductCategory AS ProductCategoryName
+    FROM Products_Staging
+    WHERE conv_ProductCategory IS NOT NULL 
+      AND conv_ProductCategory != ''
+      AND conv_ProductCategory != 'NULL'
+      AND Processed = 0
+)
+SELECT DISTINCT
+    ROW_NUMBER() OVER (ORDER BY cat.ProductCategoryID, ps.conv_SubCategory) AS ProductSubCategoryID,
+    cat.ProductCategoryID,
+    ps.conv_SubCategory AS ProductSubCategoryName,
+    GETDATE() AS ModifiedDate
+FROM Products_Staging ps
+INNER JOIN CategoryCTE cat ON ps.conv_ProductCategory = cat.ProductCategoryName
+WHERE ps.conv_SubCategory IS NOT NULL 
+  AND ps.conv_SubCategory != ''
+  AND ps.conv_SubCategory != 'NULL'
+  AND ps.Processed = 0
+ORDER BY cat.ProductCategoryID, ps.conv_SubCategory;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Connections[OleDbConnection]"
+                  connectionManagerID="{C5E5115A-E69D-448F-9409-80D7C714B38F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JFKLF5C.RetailSales_Stagging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductCategoryID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryID]"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductCategoryID]"
+                      name="ProductCategoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductSubCategoryID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ProductSubCategoryID]"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductSubCategoryID]"
+                      name="ProductSubCategoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductSubCategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ProductSubCategoryName]"
+                      length="100"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductSubCategoryName]"
+                      name="ProductSubCategoryName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryID]"
+                      dataType="i8"
+                      name="ProductCategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ProductSubCategoryID]"
+                      dataType="i8"
+                      name="ProductSubCategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].ExternalColumns[ProductSubCategoryName]"
+                      dataType="wstr"
+                      length="100"
+                      name="ProductSubCategoryName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ProductCategoryID]"
+                      dataType="i8"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ProductCategoryID]"
+                      name="ProductCategoryID" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ProductSubCategoryID]"
+                      dataType="i8"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ProductSubCategoryID]"
+                      name="ProductSubCategoryID" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ProductSubCategoryName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ProductSubCategoryName]"
+                      name="ProductSubCategoryName" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load DimProductSubCategory"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC dbo.UpdateDimProductSubCategory ?,?,?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Connections[OleDbConnection]"
+                  connectionManagerID="{59F09B93-D818-45C2-8A91-7792BCB016D2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_DWDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].Columns[ProductSubCategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ProductSubCategoryName"
+                      externalMetadataColumnId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].ExternalColumns[@ProductSubCategoryName]"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductSubCategoryName]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].Columns[ProductSubCategoryID]"
+                      cachedDataType="i8"
+                      cachedName="ProductSubCategoryID"
+                      externalMetadataColumnId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].ExternalColumns[@AlternateProductSubCategoryID]"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductSubCategoryID]" />
+                    <inputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].Columns[ProductCategoryID]"
+                      cachedDataType="i8"
+                      cachedName="ProductCategoryID"
+                      externalMetadataColumnId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].ExternalColumns[@AlternateProductCategoryID]"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output].Columns[ProductCategoryID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].ExternalColumns[@ProductSubCategoryName]"
+                      dataType="wstr"
+                      length="100"
+                      name="@ProductSubCategoryName">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].ExternalColumns[@AlternateProductSubCategoryID]"
+                      dataType="i4"
+                      name="@AlternateProductSubCategoryID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input].ExternalColumns[@AlternateProductCategoryID]"
+                      dataType="i4"
+                      name="@AlternateProductCategoryID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Load_ProductSubCategory.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Get_BatchID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{82fb9c71-5879-4677-b4e5-2393fc867ebb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Get_BatchID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(BatchID), 0) + 1 AS NewBatchID&#xA;FROM ETL_Audit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="NewBatchID"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Start_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a14d85a2-0e75-4436-ac34-9432b1d9b535}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Start_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="INSERT INTO ETL_Audit (&#xA;    BatchID,&#xA;    PackageName,&#xA;    StartTime,&#xA;    Status&#xA;)&#xA;VALUES (&#xA;    ?,&#xA;    'Load_Dim_ProductSubCategory',&#xA;    GETDATE(),&#xA;    'Running'&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Update_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{25b86bc4-9750-4ca3-87b7-e7026abc64ff}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Update_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="UPDATE ETL_Audit &#xA;SET EndTime = GETDATE(),&#xA;    RecordsInserted = ?,&#xA;    RecordsUpdated = ?,&#xA;    RecordsRejected = ?,&#xA;    Status = 'Completed'&#xA;WHERE BatchID = ? &#xA;AND PackageName = 'Load_Dim_ProductSubCategory'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::RecordsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RecordsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RecordsRejected"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{e1e03acf-0730-473b-a5bc-842095286aa3}"
+      DTS:From="Package\SQL_Get_BatchID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL_Start_Audit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{90ce3bae-ddce-4845-bb00-071fc1049b52}"
+      DTS:From="Package\SQL_Start_Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT_Load_ProductSubCategory" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5e6ac04d-d6b3-461b-a09d-e27d77a1d49c}"
+      DTS:From="Package\DFT_Load_ProductSubCategory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL_Update_Audit" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="229.6,41.6"
+          Id="Package\DFT_Load_ProductSubCategory"
+          TopLeft="446.199982789161,53.0666667148802" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQL_Get_BatchID"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\SQL_Start_Audit"
+          TopLeft="254.166656057869,53.93333337552" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\SQL_Update_Audit"
+          TopLeft="704.866631607548,63.4666666425604" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="224.8,77.76666668776">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.3666560578692,0"
+              Start="0,0"
+              End="21.8666560578692,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.8666560578692,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="410.966656057869,74.3000000452001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.2333267312916,0"
+              Start="0,0"
+              End="27.7333267312916,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.7333267312916,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="675.799982789161,73.8666667148802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.0666488183872,10.3999999276802"
+              Start="0,0"
+              End="21.5666488183872,10.3999999276802">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="10.5333244091936,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5333244091936,0"
+                    Point2="14.5333244091936,0"
+                    Point3="14.5333244091936,4" />
+                  <mssgle:LineSegment
+                    End="14.5333244091936,6.39999992768021" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5333244091936,6.39999992768021"
+                    Point2="14.5333244091936,10.3999999276802"
+                    Point3="18.5333244091936,10.3999999276802" />
+                  <mssgle:LineSegment
+                    End="21.5666488183872,10.3999999276802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Load_ProductSubCategory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="251.2,41.6"
+          Id="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging"
+          TopLeft="22.1296284205197,109.24126908162" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\DFT_Load_ProductSubCategory\Load DimProductSubCategory"
+          TopLeft="396.666644993756,116.999999186397" />
+        <EdgeLayout
+          Id="Package\DFT_Load_ProductSubCategory.Paths[OLE DB Source Output]"
+          TopLeft="273.32962842052,133.920634134009">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="123.337016573236,0"
+              Start="0,0"
+              End="115.837016573236,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="115.837016573236,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Load_ProductSubCategory\Extract Product SubCategory Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

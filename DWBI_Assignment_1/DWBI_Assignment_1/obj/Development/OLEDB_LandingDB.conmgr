@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-JFKLF5C.Landing_RetailSales"
+  DTS:DTSID="{AA8C83B3-30A2-4955-9DAA-3EBBD0AC0E60}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-JFKLF5C;Initial Catalog=Landing_RetailSales;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-DWBI_Assignment_1-{AA8C83B3-30A2-4955-9DAA-3EBBD0AC0E60}DESKTOP-JFKLF5C.Landing_RetailSales;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

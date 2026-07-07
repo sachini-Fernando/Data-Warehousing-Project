@@ -1,0 +1,2912 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2026 5:02:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JFKLF5C"
+  DTS:CreatorName="DESKTOP-JFKLF5C\USER"
+  DTS:DTSID="{196E0208-0EB9-4624-BB19-456EAC4221D1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{A6DDFD65-58B4-4470-9144-645A5D45AF95}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5EA686A3-9680-4679-BD7E-F88AB04C9C27}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="BatchID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{61A3FD12-C1D6-455B-A71A-1FF3B98B3577}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::StartTime]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentLoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">3/26/2026 12:32:10 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99A7C04B-D37A-4FD5-B957-6680893D64C6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="InvalidRecordsCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{09AD9D3D-2C49-4DE1-A4CA-63033EEFC5FA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{84CC7955-D308-409B-9201-ABBBFEB695D7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsRejected">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{935A0C28-4136-41AB-9BEA-72F45C718122}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RecordsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{960F07A8-74FF-445A-B3E2-425F772D05AB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ValidRecordsCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Stage_Transactions"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5674a9c6-e537-4e70-8984-f4281b041d45}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Stage_Transactions"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Stage_Transactions\CustomerID to int"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="CustomerID to int"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Transactions\CustomerID to int.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\CustomerID to int.Inputs[Data Conversion Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustomerID"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\CustomerID to int.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Output].Columns[conv_CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Output].Columns[conv_CustomerID]"
+                      name="conv_CustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\CustomerID to int.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Transactions\customerID to nvarchar"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="customerID to nvarchar"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Transactions\customerID to nvarchar.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\customerID to nvarchar.Inputs[Derived Column Input].Columns[conv_CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="conv_CustomerID"
+                      lineageId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Output].Columns[conv_CustomerID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\customerID to nvarchar.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Output].Columns[clean_CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Output].Columns[clean_CustomerID]"
+                      name="clean_CustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,100)#{Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Output].Columns[conv_CustomerID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,100)conv_CustomerID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\customerID to nvarchar.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Transactions\DER_AddMetadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_AddMetadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\DER_AddMetadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[IsCurrent]"
+                      name="IsCurrent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidFrom]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidFrom]"
+                      name="ValidFrom"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::StartTime]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::StartTime]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidTo]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidTo]"
+                      name="ValidTo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DATE)"9999-12-31"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DATE)"9999-12-31"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[SourceSystem]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[SourceSystem]"
+                      name="SourceSystem"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"Landing_Database"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"Landing_Database"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[Processed]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[Processed]"
+                      name="Processed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_BOOL)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_BOOL)0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\DER_AddMetadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Transactions\Find BaseCustomerID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Find BaseCustomerID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Customer_Mapping]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Customer_Mapping]) [refTable]
+where [refTable].[CustomerID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerID" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BaseCustomerID" dataType="DT_WSTR" length="150" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Output].Columns[clean_CustomerID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Connections[OleDbConnection]"
+                  connectionManagerID="{C5E5115A-E69D-448F-9409-80D7C714B38F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JFKLF5C.RetailSales_Stagging]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Inputs[Lookup Input].Columns[clean_CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="clean_CustomerID"
+                      lineageId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Output].Columns[clean_CustomerID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CustomerID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Match Output].Columns[BaseCustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="150"
+                      lineageId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Match Output].Columns[BaseCustomerID]"
+                      name="BaseCustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">BaseCustomerID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Transactions\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Transactions_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Stage_Transactions\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{C5E5115A-E69D-448F-9409-80D7C714B38F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JFKLF5C.RetailSales_Stagging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="TransactionID"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionID]"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesRepID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SalesRepID"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesRepID]"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BaseCustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="BaseCustomerID"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseCustomerID]"
+                      lineageId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Match Output].Columns[BaseCustomerID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[convTransactionDate]"
+                      cachedDataType="date"
+                      cachedName="convTransactionDate"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convTransactionDate]"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convTransactionDate]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[convSalesAmount]"
+                      cachedDataType="cy"
+                      cachedName="convSalesAmount"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convSalesAmount]"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convSalesAmount]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[convDiscount]"
+                      cachedDataType="cy"
+                      cachedName="convDiscount"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convDiscount]"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convDiscount]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[convNetAmount]"
+                      cachedDataType="cy"
+                      cachedName="convNetAmount"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convNetAmount]"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convNetAmount]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsCurrent]"
+                      cachedDataType="bool"
+                      cachedName="IsCurrent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[IsCurrent]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ValidFrom]"
+                      cachedDataType="date"
+                      cachedName="ValidFrom"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidFrom]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ValidTo]"
+                      cachedDataType="date"
+                      cachedName="ValidTo"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[ValidTo]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceSystem]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SourceSystem"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystem]"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[SourceSystem]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Processed]"
+                      cachedDataType="bool"
+                      cachedName="Processed"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DER_AddMetadata.Processed]"
+                      lineageId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output].Columns[Processed]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="TransactionID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseCustomerID]"
+                      dataType="wstr"
+                      length="150"
+                      name="BaseCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SalesRepID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convTransactionDate]"
+                      dataType="dbTimeStamp"
+                      name="convTransactionDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convSalesAmount]"
+                      dataType="cy"
+                      name="convSalesAmount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convDiscount]"
+                      dataType="cy"
+                      name="convDiscount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[convNetAmount]"
+                      dataType="cy"
+                      name="convNetAmount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsCurrent]"
+                      dataType="bool"
+                      name="IsCurrent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFrom]"
+                      dataType="dbTimeStamp"
+                      name="ValidFrom" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidTo]"
+                      dataType="dbTimeStamp"
+                      name="ValidTo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystem]"
+                      dataType="wstr"
+                      length="50"
+                      name="SourceSystem" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DER_AddMetadata.Processed]"
+                      dataType="bool"
+                      name="DER_AddMetadata.Processed" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Transactions\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Transactions\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Landing_Transactions]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Stage_Transactions\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{AA8C83B3-30A2-4955-9DAA-3EBBD0AC0E60}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JFKLF5C.Landing_RetailSales]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionID]"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionID]"
+                      name="TransactionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionDate]"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]"
+                      name="TransactionDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesRepID]"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]"
+                      name="SalesRepID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                      name="SalesAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discount]"
+                      name="Discount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[NetAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NetAmount]"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[NetAmount]"
+                      name="NetAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[Processed]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Processed]"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[Processed]"
+                      name="Processed"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="TransactionID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="TransactionDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SalesRepID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesAmount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Discount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NetAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NetAmount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Processed]"
+                      dataType="bool"
+                      name="Processed" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionID]"
+                      name="TransactionID" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionDate]"
+                      name="TransactionDate" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesRepID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesRepID]"
+                      name="SalesRepID" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                      name="SalesAmount" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Discount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Discount]"
+                      name="Discount" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NetAmount]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NetAmount]"
+                      name="NetAmount" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Processed]"
+                      dataType="bool"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Processed]"
+                      name="Processed" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Stage_Transactions\SCR_SafeConversion"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;14"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="SCR_SafeConversion"
+              version="14">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    private int rowCount = 0;
+
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        rowCount++;
+
+        // Debug: Write first 5 rows to output window
+        if (rowCount <= 5)
+        {
+            System.Diagnostics.Debug.WriteLine($"=== Row {rowCount} ===");
+            System.Diagnostics.Debug.WriteLine($"TransactionID: {Row.TransactionID}");
+            System.Diagnostics.Debug.WriteLine($"TransactionDate: {Row.TransactionDate}");
+            System.Diagnostics.Debug.WriteLine($"ProductID: {Row.ProductID}");
+            System.Diagnostics.Debug.WriteLine($"CustomerID: {Row.CustomerID}");
+            System.Diagnostics.Debug.WriteLine($"SalesRepID: {Row.SalesRepID}");
+            System.Diagnostics.Debug.WriteLine($"SalesAmount: {Row.SalesAmount}");
+            System.Diagnostics.Debug.WriteLine($"Discount: {Row.Discount}");
+            System.Diagnostics.Debug.WriteLine($"NetAmount: {Row.NetAmount}");
+        }
+
+        // Convert TransactionID (keep as string)
+        string transactionId = "";
+        if (!Row.TransactionID_IsNull)
+        {
+            transactionId = Row.TransactionID.ToString().Trim();
+        }
+        int convTransactionID = int.TryParse(transactionId, out var tid) ? tid : 0;
+
+        // Convert TransactionDate
+        DateTime transactionDate = new DateTime(1900, 1, 1);
+        if (!Row.TransactionDate_IsNull)
+        {
+            string val = Row.TransactionDate.ToString().Trim();
+            if (!string.IsNullOrEmpty(val))
+            {
+                DateTime.TryParse(val, out transactionDate);
+                if (rowCount <= 5) System.Diagnostics.Debug.WriteLine($"Parsed TransactionDate: {transactionDate}");
+            }
+        }
+        Row.convTransactionDate = transactionDate;
+
+        // Convert ProductID (convert to int)
+        int productId = 0;
+        if (!Row.ProductID_IsNull)
+        {
+            string val = Row.ProductID.ToString().Trim();
+            if (!string.IsNullOrEmpty(val))
+            {
+                int.TryParse(val, out productId);
+            }
+        }
+        // Row.convProductID = productId; // convProductID not defined on Input0Buffer. Add an output column in the SSIS designer if you need this stored.
+
+        // Convert CustomerID (store in convCustomerID as int)
+        int customerId = 0;
+        if (!Row.CustomerID_IsNull)
+        {
+            string val = Row.CustomerID.ToString().Trim();
+            if (!string.IsNullOrEmpty(val))
+            {
+                int.TryParse(val, out customerId);
+            }
+        }
+        // Row.convCustomerID = customerId; // convCustomerID not defined on Input0Buffer. Add an output column in the SSIS designer if you need this stored.
+
+        // Convert SalesRepID (convert to int)
+        int salesRepId = 0;
+        if (!Row.SalesRepID_IsNull)
+        {
+            string val = Row.SalesRepID.ToString().Trim();
+            if (!string.IsNullOrEmpty(val))
+            {
+                int.TryParse(val, out salesRepId);
+            }
+        }
+        // Row.convSalesRepID = salesRepId; // convSalesRepID not defined on Input0Buffer. Add an output column in the SSIS designer if you need this stored.
+
+        // Convert SalesAmount
+        decimal salesAmount = 0;
+        if (!Row.SalesAmount_IsNull)
+        {
+            string val = Row.SalesAmount.ToString().Trim();
+            if (!string.IsNullOrEmpty(val))
+            {
+                decimal.TryParse(val, out salesAmount);
+                salesAmount = Math.Round(salesAmount, 2);
+                if (rowCount <= 5) System.Diagnostics.Debug.WriteLine($"Parsed SalesAmount: {salesAmount}");
+            }
+        }
+        Row.convSalesAmount = salesAmount;
+
+        // Convert Discount
+        decimal discount = 0;
+        if (!Row.Discount_IsNull)
+        {
+            string val = Row.Discount.ToString().Trim();
+            if (!string.IsNullOrEmpty(val))
+            {
+                decimal.TryParse(val, out discount);
+                discount = Math.Round(discount, 2);
+                if (rowCount <= 5) System.Diagnostics.Debug.WriteLine($"Parsed Discount: {discount}");
+            }
+        }
+        Row.convDiscount = discount;
+
+        // Convert NetAmount
+        decimal netAmount = 0;
+        if (!Row.NetAmount_IsNull)
+        {
+            string val = Row.NetAmount.ToString().Trim();
+            if (!string.IsNullOrEmpty(val))
+            {
+                decimal.TryParse(val, out netAmount);
+                netAmount = Math.Round(netAmount, 2);
+                if (rowCount <= 5) System.Diagnostics.Debug.WriteLine($"Parsed NetAmount: {netAmount}");
+            }
+        }
+        Row.convNetAmount = netAmount;
+
+
+        if (rowCount <= 5) System.Diagnostics.Debug.WriteLine("---");
+    }
+}]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String TransactionID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+    }
+    public bool TransactionID_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+    }
+
+    public String TransactionDate
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[1]);
+        }
+    }
+    public bool TransactionDate_IsNull
+    {
+        get
+        {
+            return IsNull(1);
+        }
+    }
+
+    public String ProductID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[2]);
+        }
+    }
+    public bool ProductID_IsNull
+    {
+        get
+        {
+            return IsNull(2);
+        }
+    }
+
+    public String CustomerID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[3]);
+        }
+    }
+    public bool CustomerID_IsNull
+    {
+        get
+        {
+            return IsNull(3);
+        }
+    }
+
+    public String SalesRepID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[4]);
+        }
+    }
+    public bool SalesRepID_IsNull
+    {
+        get
+        {
+            return IsNull(4);
+        }
+    }
+
+    public String SalesAmount
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[5]);
+        }
+    }
+    public bool SalesAmount_IsNull
+    {
+        get
+        {
+            return IsNull(5);
+        }
+    }
+
+    public String Discount
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[6]);
+        }
+    }
+    public bool Discount_IsNull
+    {
+        get
+        {
+            return IsNull(6);
+        }
+    }
+
+    public String NetAmount
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[7]);
+        }
+    }
+    public bool NetAmount_IsNull
+    {
+        get
+        {
+            return IsNull(7);
+        }
+    }
+
+    public DateTime convTransactionDate
+    {
+        set
+        {
+            this[8] = value;
+        }
+    }
+    public bool convTransactionDate_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(8);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Decimal convSalesAmount
+    {
+        set
+        {
+            this[9] = value;
+        }
+    }
+    public bool convSalesAmount_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(9);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Decimal convDiscount
+    {
+        set
+        {
+            this[10] = value;
+        }
+    }
+    public bool convDiscount_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(10);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Decimal convNetAmount
+    {
+        set
+        {
+            this[11] = value;
+        }
+    }
+    public bool convNetAmount_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(11);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_2ae807bdb09643faa16dab1944ef8b30.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{807BAE93-72BE-40D2-BED1-D40B763353EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_2ae807bdb09643faa16dab1944ef8b30</RootNamespace>
+    <AssemblyName>SC_2ae807bdb09643faa16dab1944ef8b30</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_2ae807bdb09643faa16dab1944ef8b30" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC170</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_2ae807bdb09643faa16dab1944ef8b30.Properties.Settings.get_Default():SC_2ae807bdb09643faa16dab1944ef8b30.Properties.Sett" +
+    "ings")]
+
+namespace SC_2ae807bdb09643faa16dab1944ef8b30.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_2ae807bdb09643faa16dab1944ef8b30</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_2ae807bdb09643faa16dab1944ef8b30</msb:DisplayName>
+    <msb:ProjectId>{27552ED0-F8FF-4258-B4C9-045B6CE5E325}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_2ae807bdb09643faa16dab1944ef8b30.csproj" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_2ae807bdb09643faa16dab1944ef8b30")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_2ae807bdb09643faa16dab1944ef8b30")]
+[assembly: AssemblyCopyright("Copyright @  2026")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_2ae807bdb09643faa16dab1944ef8b30.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_2ae807bdb09643faa16dab1944ef8b30.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_2ae807bdb09643faa16dab1944ef8b30.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_2ae807bdb09643faa16dab1944ef8b30.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_2ae807bdb09643faa16dab1944ef8b30.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_2ae807bdb09643faa16dab1944ef8b30.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDADvrw2kAAAAAAAAAAOAAIiALATAAABoAAAAIAAAAAAAAejkA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAACg5AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAgBkAAAAgAAAAGgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAcAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAABc
+OQAAAAAAAEgAAAACAAUA+CQAAHgTAAABAAAAAAAAAHA4AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBAATAgAAAQAAEQICewEAAAQXWH0BAAAEAnsBAAAEGyYm
+cgEAAHAKA28FAAAGLREDbwQAAAZvEAAACm8RAAAKCgYSASgSAAAKJhICIGwHAAAXFygTAAAKA28H
+AAAGLS4DbwYAAAZvEAAACm8RAAAKEwkRCSgUAAAKLRMRCRICKBUAAAomAnsBAAAEGyYmAwhvFAAA
+BhYNA28JAAAGLSUDbwgAAAZvEAAACm8RAAAKEwoRCigUAAAKLQoRChIDKBIAAAomFhMEA28LAAAG
+LSUDbwoAAAZvEAAACm8RAAAKEwsRCygUAAAKLQoRCxIEKBIAAAomFhMFA28NAAAGLSUDbwwAAAZv
+EAAACm8RAAAKEwwRDCgUAAAKLQoRDBIFKBIAAAomEgb+FQ8AAAEDbw8AAAYtOANvDgAABm8QAAAK
+bxEAAAoTDRENKBQAAAotHRENEgYoFgAACiYRBhgoFwAAChMGAnsBAAAEGyYmAxEGbxYAAAYSB/4V
+DwAAAQNvEQAABi04A28QAAAGbxAAAApvEQAAChMOEQ4oFAAACi0dEQ4SBygWAAAKJhEHGCgXAAAK
+EwcCewEAAAQbJiYDEQdvGAAABhII/hUPAAABA28TAAAGLTgDbxIAAAZvEAAACm8RAAAKEw8RDygU
+AAAKLR0RDxIIKBYAAAomEQgYKBcAAAoTCAJ7AQAABBsmJgMRCG8aAAAGAnsBAAAEGyYmKh4CKB4A
+AAYqKgIDBAUoGAAACipSAnsZAAAKAnsaAAAKFpRvGwAACioiAhYoHAAACipSAnsZAAAKAnsaAAAK
+F5RvGwAACioiAhcoHAAACipSAnsZAAAKAnsaAAAKGJRvGwAACioiAhgoHAAACipSAnsZAAAKAnsa
+AAAKGZRvGwAACioiAhkoHAAACipSAnsZAAAKAnsaAAAKGpRvGwAACioiAhooHAAACipSAnsZAAAK
+AnsaAAAKG5RvGwAACioiAhsoHAAACipSAnsZAAAKAnsaAAAKHJRvGwAACioiAhwoHAAACipSAnsZ
+AAAKAnsaAAAKHZRvGwAACioiAh0oHAAACio6Ah4DjA4AAAEoHQAACipaAywIAh4oHgAACipyAwAA
+cHMfAAAKej4CHwkDjA8AAAEoHQAACipeAywJAh8JKB4AAAoqcgMAAHBzHwAACno+Ah8KA4wPAAAB
+KB0AAAoqXgMsCQIfCigeAAAKKnIDAABwcx8AAAp6PgIfCwOMDwAAASgdAAAKKl4DLAkCHwsoHgAA
+CipyAwAAcHMfAAAKeh4CKCAAAAoqHgIoIQAACip+AigiAAAKAgJzIgAABn0CAAAEAgJzIwAABn0D
+AAAEKpIEcqAAAHAabyMAAAosFQIFAgMoJAAACg4EcwMAAAZvIAAABipKKwcCA28hAAAGA28cAAAG
+LfEqBio6AiglAAAKAgN9BAAABCo6AiglAAAKAgN9BQAABCoeAiglAAAKKq5+BgAABC0ecrAAAHDQ
+BwAAAigmAAAKbycAAApzKAAACoAGAAAEfgYAAAQqGn4HAAAEKh4CgAcAAAQqGn4IAAAEKh4CKCkA
+AAoqLnMpAAAGgAgAAAQqAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAAC8BwAA
+I34AACgIAAAcCAAAI1N0cmluZ3MAAAAARBAAACQBAAAjVVMAaBEAABAAAAAjR1VJRAAAAHgRAAAA
+AgAAI0Jsb2IAAAAAAAAAAgAAAVcVogEJAQAAAPoBMwAWAAABAAAAIwAAAAgAAAAIAAAAKgAAABUA
+AAApAAAAEAAAAAEAAAADAAAAGwAAABwAAAABAAAABAAAAAEAAAAAAHQDAQAAAAAABgBsAtgFBgAA
+A9gFBgC4AcUFDwBMBgAABgDlARoFBgBPAhoFBgAwAhoFBgDnAhoFBgCMAhoFBgClAhoFBgD8ARoF
+BgAXAiQDCgDAAtAABgDHAM0EBgBWA80ECgCXBdAADgCIBdAACgBjBdAACgASB9AABgDVBs0EBgCb
+AcUFBgCoBfgFBgBXBQUFEgBrAV4DEgDMAV4DEgAeAfAEBgCAAdgFBgBKA80EBgAlAM0EBgBRA80E
+BgAsBc0EBgBGBc0EBgDxAM0EBgCZAM0EBgACCBoFAAAAACsAAAAAAAEAAQABABAA5QQAABAAAQAB
+AAEAEAB7BQAAQQACAAMAAQAQAPQGAABNAAIAHgABABAAyQYAAFEABAAiAAEAEACKBgAAUQAFACMA
+AAAQAP8FWwZRAAYAJAAAARAAuQZbBmkACAAoAAEAIge+AAYAyQbBAAYAigbFAAEAAgfJAAEAAgfJ
+ABEA2QTNABEADgHRABEAiQDVAFAgAAAAAMYA3wfZAAEAbyIAAAAAhhi4BQYAAgB3IgAAAACGGLgF
+YQACAIIiAAAAAIYINAAyAAUAlyIAAAAAhgicA4MABQCgIgAAAACGCD8BMgAFALUiAAAAAIYI9gOD
+AAUAviIAAAAAhghkADIABQDTIgAAAACGCOEDgwAFANwiAAAAAIYIVQAyAAUA8SIAAAAAhgjLA4MA
+BQD6IgAAAACGCEYAMgAFAA8jAAAAAIYItQODAAUAGCMAAAAAhghJBzIABQAtIwAAAACGCFwEgwAF
+ADYjAAAAAIYIKwcyAAUASyMAAAAAhggwBIMABQBUIwAAAACGCG0HMgAFAGkjAAAAAIYIjgSDAAUA
+ciMAAAAAhghTAd8ABQCBIwAAAACGCBEE5QAGAJgjAAAAAIYIWQfqAAcAqCMAAAAAhghzBOUACADA
+IwAAAACGCDgH6gAJANAjAAAAAIYIRATlAAoA6CMAAAAAhgh7B+oACwD4IwAAAACGCKME5QAMABAk
+AAAAAIYA9geDAA0AGCQAAAAAhgDcBoMADQAgJAAAAACGGLgFBgANAEAkAAAAAMYA0gfwAA0AZSQA
+AAAAxgHLB9kAEQB4JAAAAADGAd8H2QASAHokAAAAAIYYuAX6ABMAiSQAAAAAhhi4BfoAFACYJAAA
+AACDGLgFBgAVAKAkAAAAAJMIpAUAARUAzCQAAAAAkwj2AAUBFQDTJAAAAACTCAIBCgEVANskAAAA
+AJYI6AYQARYA4iQAAAAAhhi4BQYAFgDqJAAAAACRGL4FFQEWAAAAAQD6BwAAAQCdBQAAAgCUBgAA
+AwBxBQAAAQAeAwAAAQAeAwAAAQAeAwAAAQAeAwAAAQAeAwAAAQAeAwAAAQAeAwAAAQAeAwAAAQBy
+AAAAAgC9AAAAAwCdBQAABABxBQAAAQCdBQAAAQD6BwAAAQAYBwAAAQAYBwAAAQAeAwkAuAUBABEA
+uAUGABkAuAUKACkAuAUQADEAuAUQADkAuAUQAEEAuAUQAEkAuAUQAFEAuAUQAFkAuAUQAGEAuAUQ
+AGkAuAUGAKkAuAUGAMkAuAUVANkAuAUGAKEAPgMyAOEA1AQyAOkANgE2AHEAuAU9AOEACwhEAHEA
+NgFJAHkANgFRAPEAgwBZAIEAuAVhAIEAnQVrAIEAlAZvAIkARwNzAIEAtQR4AIEAxAR9AIEAvAQB
+APkAuAUQAIEA9geDAIEA3AaDAJkAuAUGAOEAwgaHAJkAqAaPAKEAuAUGAAkBqwCVAAkB/geeALEA
+uAWkANEAuAUGAC4ACwA6AS4AEwBDAS4AGwBiAS4AIwBrAS4AKwCUAS4AMwCUAS4AOwCUAS4AQwBr
+AS4ASwCaAS4AUwCUAS4AWwCxAUMAYwD7AeMAawD7AQEBewD7ASkDcwBiAUkDcwBiARsAAwABAAcA
+GQAIABsAAAA4ABkBAACgAx0BAABbARkBAAAZBB0BAABoABkBAADlAx0BAABZABkBAADPAx0BAABK
+ABkBAAC5Ax0BAABhBxkBAAB7BB0BAABABxkBAABMBB0BAACDBxkBAACrBB0BAABXASEBAAAVBB0B
+AABdByYBAAB3BB0BAAA8ByYBAABIBB0BAAB/ByYBAACnBB0BAACoBSsBAAAWATABAADsBjUBAgAE
+AAMAAgAFAAUAAgAGAAcAAgAHAAkAAgAIAAsAAgAJAA0AAgAKAA8AAgALABEAAgAMABMAAgANABUA
+AgAOABcAAgAPABkAAgAQABsAAgARAB0AAgASAB8AAgATACEAAQAUACMAAQAVACUAAQAWACcAAQAX
+ACkAAQAYACsAAQAZAC0AAQAaAC8AAQAbADEAAgAlADMAAgAmADUAAQAnADUAAgAoADcABIAAAAEA
+AAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAKwAegAAAAAAEQAAAAAAAAAAAAAAtQCNBwAAAAAR
+AAAAAAAAAAAAAAC1AKoHAAAAAAQAAAAAAAAAAAAAAKwAzQQAAAAAAAAAAAEAAAAJBgAAAAAAU0Nf
+MmFlODA3YmRiMDk2NDNmYWExNmRhYjE5NDRlZjhiMzAASW50MzIAPE1vZHVsZT4AZ2V0X1RyYW5z
+YWN0aW9uSUQAZ2V0X1NhbGVzUmVwSUQAZ2V0X0N1c3RvbWVySUQAZ2V0X1Byb2R1Y3RJRABJbnB1
+dElEAG1zY29ybGliAFJvdW5kAGRlZmF1bHRJbnN0YW5jZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRU
+eXBlRnJvbUhhbmRsZQBJbnB1dE5hbWUARGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMu
+UGlwZWxpbmUAVHlwZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAQXBw
+bGljYXRpb25TZXR0aW5nc0Jhc2UAVHJ5UGFyc2UAZ2V0X1RyYW5zYWN0aW9uRGF0ZQBzZXRfY29u
+dlRyYW5zYWN0aW9uRGF0ZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0
+dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUA
+RWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlU
+cmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmln
+dXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9u
+UmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29w
+eXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRlAEFz
+c2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQB2YWx1
+ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAEdldFN0cmluZwBNYXRoAERlY2lt
+YWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNDXzJhZTgwN2JkYjA5NjQzZmFhMTZkYWIxOTQ0ZWY4
+YjMwLmRsbABnZXRfVHJhbnNhY3Rpb25JRF9Jc051bGwAZ2V0X1NhbGVzUmVwSURfSXNOdWxsAGdl
+dF9DdXN0b21lcklEX0lzTnVsbABnZXRfUHJvZHVjdElEX0lzTnVsbABnZXRfVHJhbnNhY3Rpb25E
+YXRlX0lzTnVsbABzZXRfY29udlRyYW5zYWN0aW9uRGF0ZV9Jc051bGwAZ2V0X0Rpc2NvdW50X0lz
+TnVsbABzZXRfY29udkRpc2NvdW50X0lzTnVsbABnZXRfU2FsZXNBbW91bnRfSXNOdWxsAHNldF9j
+b252U2FsZXNBbW91bnRfSXNOdWxsAGdldF9OZXRBbW91bnRfSXNOdWxsAHNldF9jb252TmV0QW1v
+dW50X0lzTnVsbABTZXROdWxsAHNldF9JdGVtAFN5c3RlbQBUcmltAHJlc291cmNlTWFuAFNjcmlw
+dE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJl
+ZmxlY3Rpb24ASW52YWxpZE9wZXJhdGlvbkV4Y2VwdGlvbgBTdHJpbmdDb21wYXJpc29uAEN1bHR1
+cmVJbmZvAE91dHB1dE5hbWVNYXAAT3V0cHV0TWFwAElucHV0MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZl
+cgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFuYWdlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRp
+YWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNl
+cwBTQ18yYWU4MDdiZGIwOTY0M2ZhYTE2ZGFiMTk0NGVmOGIzMC5Qcm9wZXJ0aWVzLlJlc291cmNl
+cy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU0NfMmFlODA3YmRiMDk2NDNmYWExNmRhYjE5NDRl
+ZjhiMzAuUHJvcGVydGllcwBWYXJpYWJsZXMAQnVmZmVyQ29sdW1uSW5kZXhlcwBHZXRDb2x1bW5J
+bmRleGVzAFNldHRpbmdzAEVxdWFscwBDb25uZWN0aW9ucwBPYmplY3QARW5kT2ZSb3dzZXQAZ2V0
+X0RlZmF1bHQAVXNlckNvbXBvbmVudABQYXJlbnRDb21wb25lbnQAU2NyaXB0Q29tcG9uZW50AHJv
+d0NvdW50AGdldF9EaXNjb3VudABzZXRfY29udkRpc2NvdW50AGdldF9TYWxlc0Ftb3VudABzZXRf
+Y29udlNhbGVzQW1vdW50AGdldF9OZXRBbW91bnQAc2V0X2NvbnZOZXRBbW91bnQATWljcm9zb2Z0
+LlNxbFNlcnZlci5UeFNjcmlwdABNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdABJbnB1
+dDBfUHJvY2Vzc0lucHV0AElucHV0MF9Qcm9jZXNzSW5wdXRSb3cATmV4dFJvdwBnZXRfQXNzZW1i
+bHkASXNOdWxsT3JFbXB0eQAAAAAAAQCAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIAdAB5ACAA
+YwBhAG4AbgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBzAHMAaQBn
+AG4AIABhACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkAbgBzAHQA
+ZQBhAGQALgAAD0kAbgBwAHUAdAAgADAAAHFTAEMAXwAyAGEAZQA4ADAANwBiAGQAYgAwADkANgA0
+ADMAZgBhAGEAMQA2AGQAYQBiADEAOQA0ADQAZQBmADgAYgAzADAALgBQAHIAbwBwAGUAcgB0AGkA
+ZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAACJiRgfhnzEWGWGm5gsf9ZwAEIAEBCAMgAAEFIAEB
+EREEIAEBDgUgAQERYRYHEA4IETkICAgRPRE9ET0ODg4ODg4OAyAADgYAAgIOEAgGIAMBCAgIBAAB
+Ag4HAAICDhAROQcAAgIOEBE9BwACET0RPQgJIAMBEkUdCBJJAwYSRQMGHQgEIAEOCAQgAQIIBSAC
+AQgcAyAAAgcgAgIOEYCBBSABHQgICAABEoCFEYCJBSAAEoCNByACAQ4SgI0It3pcVhk04IkIiYRd
+zYCAzJECBggDBhIUAwYSGAMGEk0DBhJZAwYSXQMGEiAFIAEBEgwFIAEBETkEIAEBAgUgAQERPQkg
+BAEIDhJFEkkFIAEBEk0EAAASWQQAABJdBQABARJdBAAAEiADAAABAygADgMoAAIEKAAROQQoABE9
+BAgAElkECAASXQQIABIgCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgB
+AAIAAAAAACgBACNTQ18yYWU4MDdiZGIwOTY0M2ZhYTE2ZGFiMTk0NGVmOGIzMAAABQEAAAAAFgEA
+EUNvcHlyaWdodCBAICAyMDI2AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZy
+YW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNwQBAAAAtAAAAM7K774BAAAAkQAA
+AGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAu
+MC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lz
+dGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAFA5
+AAAAAAAAAAAAAGo5AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcOQAAAAAAAAAAAAAAAF9Db3JE
+bGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
+AFhAAADsAwAAAAAAAAAAAADsAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
+vQTv/gAAAQAAAAEAAAAAAAAAAQAAAAAAPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
+AAAAALAETAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAKAMAAAEAMAAwADAAMAAw
+ADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBuAHkA
+TgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAAAABT
+AEMAXwAyAGEAZQA4ADAANwBiAGQAYgAwADkANgA0ADMAZgBhAGEAMQA2AGQAYQBiADEAOQA0ADQA
+ZQBmADgAYgAzADAAAAAwAAgAAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4AMAAu
+ADAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfADIAYQBlADgAMAA3AGIA
+ZABiADAAOQA2ADQAMwBmAGEAYQAxADYAZABhAGIAMQA5ADQANABlAGYAOABiADMAMAAuAGQAbABs
+AAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQA
+IABAACAAIAAyADAAMgA2AAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAA
+AAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AMgBhAGUA
+OAAwADcAYgBkAGIAMAA5ADYANAAzAGYAYQBhADEANgBkAGEAYgAxADkANAA0AGUAZgA4AGIAMwAw
+AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADIAYQBlADgA
+MAA3AGIAZABiADAAOQA2ADQAMwBmAGEAYQAxADYAZABhAGIAMQA5ADQANABlAGYAOABiADMAMAAA
+ADQACAABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAA4AAgA
+AQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAfDkAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_2ae807bdb09643faa16dab1944ef8b30</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">CD</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[TransactionID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="TransactionID"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[TransactionDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="TransactionDate"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionDate]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[ProductID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="ProductID"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustomerID"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[SalesRepID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SalesRepID"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesRepID]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[SalesAmount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesAmount"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[Discount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Discount"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[Discount]" />
+                    <inputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0].Columns[NetAmount]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NetAmount"
+                      lineageId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output].Columns[NetAmount]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convTransactionDate]"
+                      dataType="date"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convTransactionDate]"
+                      name="convTransactionDate" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convSalesAmount]"
+                      dataType="cy"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convSalesAmount]"
+                      name="convSalesAmount" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convDiscount]"
+                      dataType="cy"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convDiscount]"
+                      name="convDiscount" />
+                    <outputColumn
+                      refId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convNetAmount]"
+                      dataType="cy"
+                      lineageId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0].Columns[convNetAmount]"
+                      name="convNetAmount" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Stage_Transactions.Paths[Data Conversion Output]"
+              endId="Package\DFT_Stage_Transactions\customerID to nvarchar.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Stage_Transactions\CustomerID to int.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Stage_Transactions.Paths[Derived Column Output]"
+              endId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Stage_Transactions\customerID to nvarchar.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Stage_Transactions.Paths[Derived Column Output1]"
+              endId="Package\DFT_Stage_Transactions\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Stage_Transactions\DER_AddMetadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Stage_Transactions.Paths[Lookup Match Output]"
+              endId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Inputs[Input 0]"
+              name="Lookup Match Output"
+              startId="Package\DFT_Stage_Transactions\Find BaseCustomerID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_Stage_Transactions.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Stage_Transactions\CustomerID to int.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Stage_Transactions\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_Stage_Transactions.Paths[Output 0]"
+              endId="Package\DFT_Stage_Transactions\DER_AddMetadata.Inputs[Derived Column Input]"
+              name="Output 0"
+              startId="Package\DFT_Stage_Transactions\SCR_SafeConversion.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Get_BatchID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{980b371c-0430-404c-9faa-5563bf109184}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Get_BatchID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="SELECT ISNULL(MAX(BatchID), 0) + 1 AS NewBatchID&#xA;FROM ETL_Audit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Start_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5f8371dc-f99b-4b6d-bc27-124377343cd2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Start_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="INSERT INTO ETL_Audit (&#xA;    BatchID,&#xA;    PackageName,&#xA;    StartTime,&#xA;    Status&#xA;)&#xA;VALUES (&#xA;    ?,&#xA;    'STG_Transactions',&#xA;    GETDATE(),&#xA;    'Running'&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Update_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{21acbf6c-2fe0-4524-8dc6-122d1d0a83f2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Update_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5E5115A-E69D-448F-9409-80D7C714B38F}"
+          SQLTask:SqlStatementSource="UPDATE ETL_Audit &#xA;SET EndTime = GETDATE(),&#xA;    RecordsInserted = ?,&#xA;    RecordsUpdated = ?,&#xA;    RecordsRejected = ?,&#xA;    Status = 'Completed'&#xA;WHERE BatchID = ? &#xA;AND PackageName = 'STG_Transactions'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ValidRecordsCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RecordsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::InvalidRecordsCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::BatchID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQ_Update_Landing_Flag"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{812a5249-2dd5-4c28-876d-ca845b2d6bf2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQ_Update_Landing_Flag"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AA8C83B3-30A2-4955-9DAA-3EBBD0AC0E60}"
+          SQLTask:SqlStatementSource="UPDATE Landing_Transactions&#xA;SET Processed = 1&#xA;WHERE Processed = 0 OR Processed IS NULL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{d08d073b-aa27-4ac7-b470-eefd5b98a6df}"
+      DTS:From="Package\SQL_Get_BatchID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL_Start_Audit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{a128ccfd-1fb7-4cdf-9907-7352ddc4f526}"
+      DTS:From="Package\SQL_Start_Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT_Stage_Transactions" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{d724e746-9b88-4b19-acb0-e8779da04d7e}"
+      DTS:From="Package\DFT_Stage_Transactions"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL_Update_Audit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{67ff7491-f679-4467-b280-e514b55cbb49}"
+      DTS:From="Package\SQL_Update_Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQ_Update_Landing_Flag" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\DFT_Stage_Transactions"
+          TopLeft="500.066647998824,65.1999999638398" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\SQ_Update_Landing_Flag"
+          TopLeft="690.766632290517,196.799999349118" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\SQL_Get_BatchID"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\SQL_Start_Audit"
+          TopLeft="276.666654828522,69.5333332670397" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\SQL_Update_Audit"
+          TopLeft="741.666629422043,74.7333332308795" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="224.8,80.7999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.8666548285224,9.53333326703975"
+              Start="0,0"
+              End="44.3666548285224,9.53333326703975">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.9333274142612,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.9333274142612,0"
+                    Point2="25.9333274142612,0"
+                    Point3="25.9333274142612,4" />
+                  <mssgle:LineSegment
+                    End="25.9333274142612,5.53333326703975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.9333274142612,5.53333326703975"
+                    Point2="25.9333274142612,9.53333326703975"
+                    Point3="29.9333274142612,9.53333326703975" />
+                  <mssgle:LineSegment
+                    End="44.3666548285224,9.53333326703975" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="433.466654828522,88.1666666154397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.599993170302,0"
+              Start="0,0"
+              End="59.099993170302,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.099993170302,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="696.866647998824,85.9999999638398">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.799981423219,9.53333326703971"
+              Start="0,0"
+              End="37.299981423219,9.53333326703971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.3999907116095,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.3999907116095,0"
+                    Point2="22.3999907116095,0"
+                    Point3="22.3999907116095,4" />
+                  <mssgle:LineSegment
+                    End="22.3999907116095,5.53333326703971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.3999907116095,5.53333326703971"
+                    Point2="22.3999907116095,9.53333326703971"
+                    Point3="26.3999907116095,9.53333326703971" />
+                  <mssgle:LineSegment
+                    End="37.299981423219,9.53333326703971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="825.666629422043,116.33333323088">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.0999971315268,80.4666661182378"
+              Start="0,0"
+              End="-34.0999971315268,72.9666661182378">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.2333330591189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.2333330591189"
+                    Point2="0,40.2333330591189"
+                    Point3="-4,40.2333330591189" />
+                  <mssgle:LineSegment
+                    End="-30.0999971315268,40.2333330591189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.0999971315268,40.2333330591189"
+                    Point2="-34.0999971315268,40.2333330591189"
+                    Point3="-34.0999971315268,44.2333330591189" />
+                  <mssgle:LineSegment
+                    End="-34.0999971315268,72.9666661182378" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Stage_Transactions">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\DFT_Stage_Transactions\SCR_SafeConversion"
+          TopLeft="385.83331225233,102.266665955517" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\DFT_Stage_Transactions\customerID to nvarchar"
+          TopLeft="114.537030779009,240.355553884153" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\DFT_Stage_Transactions\OLE DB Source"
+          TopLeft="145.833325365352,80.3333327969578" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\DFT_Stage_Transactions\DER_AddMetadata"
+          TopLeft="657.685149250853,98.3259259486934" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\DFT_Stage_Transactions\CustomerID to int"
+          TopLeft="122.87036365703,171.214813624208" />
+        <EdgeLayout
+          Id="Package\DFT_Stage_Transactions.Paths[Output 0]"
+          TopLeft="565.83331225233,121.096295952105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.8518369985229,0"
+              Start="0,0"
+              End="84.3518369985229,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="84.3518369985229,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Stage_Transactions.Paths[OLE DB Source Output]"
+          TopLeft="221.833325365352,121.933332796958">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.3629617083223,49.2814808272506"
+              Start="0,0"
+              End="-19.3629617083223,41.7814808272506">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6407404136253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6407404136253"
+                    Point2="0,24.6407404136253"
+                    Point3="-4,24.6407404136253" />
+                  <mssgle:LineSegment
+                    End="-15.3629617083223,24.6407404136253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.3629617083223,24.6407404136253"
+                    Point2="-19.3629617083223,24.6407404136253"
+                    Point3="-19.3629617083223,28.6407404136253" />
+                  <mssgle:LineSegment
+                    End="-19.3629617083223,41.7814808272506" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Stage_Transactions.Paths[Data Conversion Output]"
+          TopLeft="205.103697218019,212.814813624208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.5407402599442"
+              Start="0,0"
+              End="0,20.0407402599442">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0407402599442" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\DFT_Stage_Transactions\Find BaseCustomerID"
+          TopLeft="388.333312115736,222.533331874874" />
+        <EdgeLayout
+          Id="Package\DFT_Stage_Transactions.Paths[Derived Column Output]"
+          TopLeft="300.937030779009,261.155553884153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.3962813367274,-17.8222220092787"
+              Start="0,0"
+              End="79.8962813367274,-17.8222220092787">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.6981406683637,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.6981406683637,0"
+                    Point2="43.6981406683637,0"
+                    Point3="43.6981406683637,-4" />
+                  <mssgle:LineSegment
+                    End="43.6981406683637,-13.8222220092787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.6981406683637,-13.8222220092787"
+                    Point2="43.6981406683637,-17.8222220092787"
+                    Point3="47.6981406683637,-17.8222220092787" />
+                  <mssgle:LineSegment
+                    End="79.8962813367274,-17.8222220092787" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Stage_Transactions.Paths[Lookup Match Output]"
+          TopLeft="477.283312184033,222.533331874874">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-78.6666659193569"
+              Start="0,0"
+              End="0,-71.1666659193569">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-71.1666659193569" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,-41.3880204596785,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT_Stage_Transactions\OLE DB Destination"
+          TopLeft="718.333294085332,189.999998806715" />
+        <EdgeLayout
+          Id="Package\DFT_Stage_Transactions.Paths[Derived Column Output1]"
+          TopLeft="741.685149250853,139.925925948693">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.2481448344793,50.0740728580216"
+              Start="0,0"
+              End="62.2481448344793,42.5740728580216">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0370364290108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0370364290108"
+                    Point2="0,25.0370364290108"
+                    Point3="4,25.0370364290108" />
+                  <mssgle:LineSegment
+                    End="58.2481448344793,25.0370364290108" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.2481448344793,25.0370364290108"
+                    Point2="62.2481448344793,25.0370364290108"
+                    Point3="62.2481448344793,29.0370364290108" />
+                  <mssgle:LineSegment
+                    End="62.2481448344793,42.5740728580216" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Stage_Transactions\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Stage_Transactions\Find BaseCustomerID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Customer_Mapping]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Stage_Transactions\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
