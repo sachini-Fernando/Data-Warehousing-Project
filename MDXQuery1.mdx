@@ -1,0 +1,47 @@
+SELECT 
+    [CATALOG_NAME] AS DatabaseName,
+    [CUBE_NAME] AS CubeName
+FROM $system.MDSchema_Cubes
+WHERE CUBE_TYPE = 'CUBE'
+
+--Query 2: Sales by Product Category
+SELECT 
+    { [Measures].[Sales Amount] } ON COLUMNS,
+    { [Dim Product Category].[Product Category Name].[Product Category Name].MEMBERS } ON ROWS
+FROM [cube_Retail_Sales_DW]
+
+--Query 3: Sales by Product Hierarchy (Category → SubCategory → Product)
+SELECT 
+    { [Measures].[Sales Amount] } ON COLUMNS,
+    NON EMPTY 
+    CROSSJOIN(
+        CROSSJOIN(
+            [Dim Product Category].[Product Category Name].[Product Category Name].MEMBERS,
+            [Dim Product Sub Category].[Product Sub Category Name].[Product Sub Category Name].MEMBERS
+        ),
+        [Dim Product].[Product Name].[Product Name].MEMBERS
+    ) ON ROWS
+FROM [cube_Retail_Sales_DW]
+
+--Query 4: Sales by Year and Category (Matrix for Pivot Demo)
+SELECT 
+    { [Dim Date].[Year].[Year].MEMBERS } ON COLUMNS,     -- Axis 0
+    { [Dim Product Category].[Product Category Name].[Product Category Name].MEMBERS } ON ROWS,  -- Axis 1
+    { [Measures].[Sales Amount] } ON 2                  -- Axis 2
+FROM [cube_Retail_Sales_DW]
+
+--Operation 1: Roll-Up (Collapsing Hierarchy)
+-- Shows Category → SubCategory → Product hierarchy
+SELECT 
+    { [Measures].[Sales Amount] } ON COLUMNS,
+    NON EMPTY 
+    CROSSJOIN(
+        CROSSJOIN(
+            [Dim Product Category].[Product Category Name].[Product Category Name].ALLMEMBERS,
+            [Dim Product Sub Category].[Product Sub Category Name].[Product Sub Category Name].ALLMEMBERS),
+            [Dim Product].[Product Name].[Product Name].ALLMEMBERS
+    ) ON ROWS
+FROM [cube_Retail_Sales_DW]
+WHERE [Dim Date].[Year].&[2024]  -- Optional: filter by year
+
+
